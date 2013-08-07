@@ -23,5 +23,29 @@ architecture of the system can be seen in the diagram below.
 
 ![Design Overview](/img/Design.png)
 
+Using the Simulator
+-------------------
+
+**Rules**
+The rules used in the controller can be changed and edited when needed using the Rules Editor Tab. Doing so allows 
+observations about how changes in the rules of the controller may change its results and performance.
+Rules may be created, deleted or edited from the Rules Editor tab. A preview of the selected rule is also shown by 
+drawing the membership functions that represent the rule. Rules may also be enabled or disabled without being deleted 
+by unchecking or checking the appropriate checkbox next to its name.
+
+![Rules Editor](/img/RulesEditor.png)
+
+**Viewing Simulation History**
+Due to the nature of this assignment, it was important that the values produced by the controller over time could be 
+viewed at the end of the simulation. In order to satisfy such a requirement, the fuzzy logic controller was made to 
+store its output value, output graph and output rule at each iteration during the controller’s runtime.
+After a simulation is run, the simulation history may be viewed in the “Simulation History” tab of the application 
+where one may choose the iteration to view. The application will show the output graph which is obtained through fuzzy 
+inferencing, the output value calculated by defuzification and the rule that fired at the iteration.
+
+![Simulation History](/img/SimulationHistory.png)
+
+
+
 
 
