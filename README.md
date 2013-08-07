@@ -23,9 +23,6 @@ architecture of the system can be seen in the diagram below.
 
 ![Design Overview](/img/Design.png)
 
-Using the Simulator
-===================
-
 Running the Simulation
 ----------------------
 
