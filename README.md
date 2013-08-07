@@ -26,7 +26,16 @@ architecture of the system can be seen in the diagram below.
 Using the Simulator
 -------------------
 
+**Running the Simulation**
+The simulation may be run from the “Simulation” tab where the parameters for the simulation may be changed according to the need of the simulation case. The following parameters may be changed from the Simulation tab:
+* Defuzzification Method: specify the method to use during defuzzification. Options provided are Mean of Maxima and Center of Area (described beforehand).
+*	Initial Pressure: Specifies the initial pressure the controller should start with.
+*	Max No. Iterations: Changes the amount of times the fuzzy logic controller performs an iteration.
+
+![Simulation](/img/Simulation.png)
+
 **Rules**
+
 The rules used in the controller can be changed and edited when needed using the Rules Editor Tab. Doing so allows 
 observations about how changes in the rules of the controller may change its results and performance.
 Rules may be created, deleted or edited from the Rules Editor tab. A preview of the selected rule is also shown by 
@@ -36,6 +45,7 @@ by unchecking or checking the appropriate checkbox next to its name.
 ![Rules Editor](/img/RulesEditor.png)
 
 **Viewing Simulation History**
+
 Due to the nature of this assignment, it was important that the values produced by the controller over time could be 
 viewed at the end of the simulation. In order to satisfy such a requirement, the fuzzy logic controller was made to 
 store its output value, output graph and output rule at each iteration during the controller’s runtime.
