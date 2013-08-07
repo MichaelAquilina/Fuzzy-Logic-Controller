@@ -1,0 +1,192 @@
+﻿<UserControl x:Class="MachineLearningAssignment.PECPEGraph"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Width="400" Height="400">
+    <UserControl.Resources>
+        
+        <Style x:Key="RuleRectangleStyle" TargetType="Rectangle">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        
+        <Style x:Key="ContentTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Black" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        
+    </UserControl.Resources>
+    
+    <Grid>
+    
+        <Grid x:Name="RootGrid" Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        
+            <Rectangle Fill="Blue"
+                       x:Name="Rule16"
+                       Tag="PB"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="0" Grid.Column="0"
+                       Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+            <Rectangle Fill="Green"
+                       x:Name="Rule1"
+                       Tag="PB"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="0" Grid.Column="2"
+                       Grid.ColumnSpan="6" Grid.RowSpan="1" />
+
+            <Rectangle Fill="Red"
+                       x:Name="Rule2"
+                       Tag="PM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="0" Grid.Column="2"
+                       Grid.ColumnSpan="1" Grid.RowSpan="2" />
+
+            <Rectangle Fill="Yellow"
+                       x:Name="Rule3"
+                       Tag="PM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="2" Grid.Column="3"
+                       Grid.ColumnSpan="3" Grid.RowSpan="1" />
+
+            <Rectangle Fill="Purple"
+                       x:Name="Rule5"
+                       Tag="NM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="3" Grid.Column="0"
+                       Grid.ColumnSpan="2" Grid.RowSpan="1" />
+
+            <Rectangle Fill="PaleTurquoise"
+                       x:Name="Rule13"
+                       Tag="NS"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="3" Grid.Column="2"
+                       Grid.ColumnSpan="1" Grid.RowSpan="1" />
+
+            <Rectangle Fill="Orange"
+                       x:Name="Rule7"
+                       Tag="PM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="4" Grid.Column="0"
+                       Grid.ColumnSpan="2" Grid.RowSpan="1" />
+
+            <Rectangle Fill="SeaGreen"
+                       x:Name="Rule14"
+                       Tag="PS"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="4" Grid.Column="2"
+                       Grid.ColumnSpan="1" Grid.RowSpan="1" />
+
+            <Rectangle Fill="Brown"
+                       x:Name="Rule6"
+                       Tag="NZ"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="3" Grid.Column="3"
+                       Grid.ColumnSpan="1" Grid.RowSpan="2" />
+
+            <Rectangle Fill="CornflowerBlue"
+                       x:Name="Rule12"
+                       Tag="PS"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="3" Grid.Column="5"
+                       Grid.ColumnSpan="1" Grid.RowSpan="1" />
+
+            <Rectangle Fill="AliceBlue"
+                       x:Name="Rule15"
+                       Tag="NS"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="4" Grid.Column="5"
+                       Grid.ColumnSpan="1" Grid.RowSpan="1" />
+
+            <Rectangle Fill="DarkOliveGreen"
+                       x:Name="Rule4"
+                       Tag="PM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="3" Grid.Column="6"
+                       Grid.ColumnSpan="2" Grid.RowSpan="1" />
+
+            <Rectangle Fill="DarkCyan"
+                       x:Name="Rule8"
+                       Tag="NM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="4" Grid.Column="6"
+                       Grid.ColumnSpan="2" Grid.RowSpan="1" />
+
+            <Rectangle Fill="Sienna"
+                       x:Name="Rule9"
+                       Tag="NM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="5" Grid.Column="3"
+                       Grid.ColumnSpan="3" Grid.RowSpan="1" />
+
+            <Rectangle Fill="DarkSalmon"
+                       x:Name="Rule17"
+                       Tag="NB"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="6" Grid.Column="0"
+                       Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+            <Rectangle Fill="CadetBlue"
+                       x:Name="Rule11"
+                       Tag="NB"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="7" Grid.Column="2"
+                       Grid.ColumnSpan="6" Grid.RowSpan="1" />
+
+            <Rectangle Fill="OrangeRed"
+                       x:Name="Rule10"
+                       Tag="NM"
+                       Style="{StaticResource RuleRectangleStyle}"
+                       Opacity="0.6"
+                       Grid.Row="6" Grid.Column="2"
+                       Grid.ColumnSpan="1" Grid.RowSpan="2" />
+        </Grid>
+        <Canvas x:Name="DrawingCanvas" >
+            <Polygon x:Name="RulePolygon"
+                     StrokeThickness="2"
+                     StrokeEndLineCap="Round"
+                     StrokeLineJoin="Round"
+                     Stroke="Black"/>
+        </Canvas>
+    </Grid>
+</UserControl>

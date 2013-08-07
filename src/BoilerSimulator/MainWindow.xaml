@@ -1,0 +1,405 @@
+﻿<Window x:Class="MachineLearningAssignment.MainWindow"
+        xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:datavis="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:flc="clr-namespace:MachineLearningAssignment"
+        Title="Fuzzy Logic Controller - Boiler Simulator" 
+        Height="600" Width="780" 
+        Icon="/MachineLearningAssignment;component/gear.ico">
+    
+    <Window.Resources>
+        
+        <!-- ContentItemStyle refers to the defualt item style -->
+
+        <Style x:Key="TitleChartStyle" TargetType="datavis:Title">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Center" /> 
+        </Style>
+
+        <Style x:Key="NoLegendChartStyle" TargetType="datavis:Legend">
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Setter Property="Width" Value="0" />
+        </Style>
+        
+        <Style x:Key="NoLegendItemStyle" TargetType="charting:LegendItem" >
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+
+        <Style x:Key="Header1TextBlockStyle" TargetType="TextBlock" >
+            <Setter Property="FontSize" Value="19" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        
+        <Style x:Key="ContentTextBlockStyle" TargetType="TextBlock" >
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        
+        <Style x:Key="ContentTextBoxStyle" TargetType="TextBox" >
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Width" Value="70" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+        
+        <Style x:Key="ItemGroupStackPanel" TargetType="StackPanel" >
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+
+        <Style x:Key="ContentComboBoxStyle" TargetType="ComboBox" >
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        
+        <Style x:Key="ContentButtonStyle" TargetType="Button" >
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Black" />
+        </Style>
+        
+        <Style x:Key="LargeButtonStyle" TargetType="Button" >
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+    </Window.Resources>
+    
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="TitleTextBlock"
+                   Grid.Row="0" 
+                   Style="{StaticResource Header1TextBlockStyle}"
+                   Text="Fuzzy Logic Controller - Boiler Simulator"  />
+        
+        <TabControl x:Name="RootTabControl"
+                    Grid.Row="1">
+            <TabItem Header="Simulation" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" /> 
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                                       
+                    <Grid Margin="5"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          HorizontalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Style="{StaticResource ContentTextBlockStyle}"
+                                   Grid.Row="0" Grid.Column="0"
+                                   Text="Defuzzification Method" />
+                        <ComboBox x:Name="MethodComboBox"
+                                  Padding="5"
+                                   Style="{StaticResource ContentComboBoxStyle}"
+                                   Grid.Row="0" Grid.Column="1"
+                                    SelectedIndex="0">
+                            <ComboBox.Items>
+                                <ComboBoxItem x:Name="MeanOfMaximaComboBoxItem" 
+                                              Content="Mean of Maxima" />
+                                <ComboBoxItem x:Name="CenterOfAreaComboBoxItem" 
+                                              Content="Center of Area" />
+                            </ComboBox.Items>
+                        </ComboBox>
+
+                        <TextBlock Style="{StaticResource ContentTextBlockStyle}"
+                                   Grid.Row="1" Grid.Column="0"
+                                   Text="Initial Pressure" />
+                        <TextBox x:Name="InitialPressureTextBox"
+                                 Grid.Row="1" Grid.Column="1"
+                                 Text="450"
+                                 Style="{StaticResource ContentTextBoxStyle}" />
+
+                        <TextBlock Style="{StaticResource ContentTextBlockStyle}"
+                                   Grid.Row="2" Grid.Column="0"
+                                   Text="Max No. Iterations" />
+                        <TextBox x:Name="IterationsTextBox"
+                                 Grid.Row="2" Grid.Column="1"
+                                 Text="40"
+                                 Style="{StaticResource ContentTextBoxStyle}" />
+                    </Grid>
+                    
+                    <Grid Margin="5" 
+                          Grid.Row="0" 
+                          Grid.Column="1"
+                          HorizontalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Style="{StaticResource ContentTextBlockStyle}"
+                                   Grid.Row="0" Grid.Column="0"
+                                   Text="Sampling Points" />
+                        <TextBox x:Name="SamplingPointsTextBox"
+                                 Grid.Row="0" Grid.Column="1"
+                                 Text="41"
+                                 Style="{StaticResource ContentTextBoxStyle}" />
+
+                        <TextBlock Style="{StaticResource ContentTextBlockStyle}"
+                                   Grid.Row="1" Grid.Column="0"
+                                   Text="Set Point" />
+                        <TextBox x:Name="SetPointTextBox"
+                                 Text="500"
+                                 Grid.Row="1" Grid.Column="1"
+                                 Style="{StaticResource ContentTextBoxStyle}" />
+
+                    </Grid>
+
+                    <charting:Chart x:Name="OutputGraphChart"
+                                    Grid.Row="1" Grid.ColumnSpan="2"
+                                    Title="Pressure vs. Time"
+                                    TitleStyle="{StaticResource TitleChartStyle}" 
+                                    LegendStyle="{StaticResource NoLegendChartStyle}"
+                                    Margin="5" >
+                        <charting:LineSeries x:Name="OutputGraphLineSeries"
+                                             LegendItemStyle="{StaticResource NoLegendItemStyle}"
+                                             IndependentValuePath="X"
+                                             DependentValuePath="Y">
+                            
+                        </charting:LineSeries>
+                    </charting:Chart>
+                    <Button x:Name="StartButton"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            Content="Start Simulation"
+                            Style="{StaticResource LargeButtonStyle}" 
+                            Click="StartButton_Click"/>
+                    
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Rules Editor" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ListBox x:Name="RulesListBox"
+                                 FontSize="13"
+                                 FontWeight="Black"
+                                 Grid.Column="0" 
+                                 SelectionChanged="RulesListBox_SelectionChanged"
+                                 AlternationCount="5">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox VerticalAlignment="Center"
+                                                  Margin="4,3"
+                                                  IsChecked="{Binding IsChecked}" />
+                                        <TextBlock VerticalAlignment="Center"
+                                                   Margin="4,3"
+                                                   Text="{Binding Tag}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <Button x:Name="AddRuleButton"
+                                Style="{StaticResource ContentButtonStyle}"
+                                Grid.Row="1"
+                                Content="Add Rule" 
+                                Click="AddRuleButton_Click" />
+
+                        <Button x:Name="EditRuleButton"
+                                Style="{StaticResource ContentButtonStyle}"
+                                Grid.Row="2"
+                                Content="Edit Rule" 
+                                Click="EditRuleButton_Click" />
+
+                        <Button x:Name="RemoveRuleButton"
+                                Style="{StaticResource ContentButtonStyle}"
+                                Grid.Row="3"
+                                Content="RemoveRule"
+                                Click="RemoveRuleButton_Click" />
+                        
+                    </Grid>
+                    
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <charting:Chart x:Name="RulesF1GraphChart"
+                                    Grid.Row="0"
+                                    Padding="5,0"
+                                    Title="Pressure Error"
+                                    TitleStyle="{StaticResource TitleChartStyle}" 
+                                    LegendStyle="{StaticResource NoLegendChartStyle}"
+                                    Margin="5" >
+                            <charting:AreaSeries x:Name="RulesF1GraphLineSeries"
+                                             LegendItemStyle="{StaticResource NoLegendItemStyle}"
+                                             IndependentValuePath="X"
+                                             DependentValuePath="Y">
+
+                            </charting:AreaSeries>
+                        </charting:Chart>
+
+                        <charting:Chart x:Name="RulesF2GraphChart"
+                                    Grid.Row="1"
+                                    Padding="5,0"
+                                    Title="Change in Pressure Error"
+                                    TitleStyle="{StaticResource TitleChartStyle}" 
+                                    LegendStyle="{StaticResource NoLegendChartStyle}"
+                                    Margin="5" >
+                            <charting:AreaSeries x:Name="RulesF2GraphLineSeries"
+                                             LegendItemStyle="{StaticResource NoLegendItemStyle}"
+                                             IndependentValuePath="X"
+                                             DependentValuePath="Y">
+
+                            </charting:AreaSeries>
+                        </charting:Chart>
+
+                        <charting:Chart x:Name="RulesOutputGraphChart"
+                                    Grid.Row="2"
+                                    Padding="5,0"
+                                    Title="Delta Heat"
+                                    TitleStyle="{StaticResource TitleChartStyle}" 
+                                    LegendStyle="{StaticResource NoLegendChartStyle}"
+                                    Margin="5" >
+                            <charting:AreaSeries x:Name="RulesOutputGraphLineSeries"
+                                             LegendItemStyle="{StaticResource NoLegendItemStyle}"
+                                             IndependentValuePath="X"
+                                             DependentValuePath="Y">
+
+                            </charting:AreaSeries>
+                        </charting:Chart>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Simulation History" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Left">
+                        <StackPanel Margin="10"
+                                    Orientation="Horizontal">
+                            <TextBlock Text="Iteration"
+                                   Style="{StaticResource ContentTextBlockStyle}" />
+                            <ComboBox x:Name="IterationComboBox"
+                                  SelectionChanged="IterationComboBox_SelectionChanged"
+                                  Margin="4"/>
+                        </StackPanel>
+                        
+                        <StackPanel Margin="10"
+                                    Orientation="Horizontal">
+                            <TextBlock Text="Output Value: "
+                                       Style="{StaticResource ContentTextBlockStyle}" />
+                            <TextBlock x:Name="HistoryOutputValueTextBlock"
+                                       Style="{StaticResource ContentTextBlockStyle}" />
+                        </StackPanel>
+                        
+                        <StackPanel Margin="10"
+                                    Orientation="Horizontal">
+                            <TextBlock Text="Firing Rule: "
+                                       Style="{StaticResource ContentTextBlockStyle}" />
+                            <TextBlock x:Name="HistoryOutputRuleTextBlock"
+                                       Style="{StaticResource ContentTextBlockStyle}" />
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <charting:Chart x:Name="HistoryOutputGraphChart"
+                                    Grid.Row="1"
+                                    Padding="5,0"
+                                    Title="Output Graph"
+                                    TitleStyle="{StaticResource TitleChartStyle}" 
+                                    LegendStyle="{StaticResource NoLegendChartStyle}"
+                                    Margin="5" >
+                        <charting:Chart.Series>
+                            <charting:AreaSeries x:Name="HistoryOutputGraphLineSeries"
+                                                 LegendItemStyle="{StaticResource NoLegendItemStyle}"
+                                                 IndependentValuePath="X"
+                                                 DependentValuePath="Y"/>
+                            <charting:LineSeries x:Name="HistoryOutputValueLineSeries"
+                                                 LegendItemStyle="{StaticResource NoLegendItemStyle}"
+                                                 IndependentValuePath="X"
+                                                 DependentValuePath="Y"/>
+                        </charting:Chart.Series>
+                    </charting:Chart>
+
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="PE vs CPE Space" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Text="Rules Fired"
+                                   Grid.Row="0"
+                                   HorizontalAlignment="Center"
+                                   Style="{StaticResource Header1TextBlockStyle}" />
+                        <ListBox x:Name="HistoryOutputRulesListBox"
+                                 Width="200"
+                                 SelectionMode="Single"
+                                 Grid.Row="1"
+                                 SelectionChanged="HistoryOutputRulesListBox_SelectionChanged"/>
+                    </Grid>
+                    
+                    <flc:PECPEGraph x:Name="MainPECPEGraph"
+                                    Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            
+        </TabControl>
+        <StackPanel Grid.RowSpan="2" Height="100" HorizontalAlignment="Left" Margin="483,-52,0,0" Name="stackPanel1" VerticalAlignment="Top" Width="200" />
+    </Grid>
+</Window>

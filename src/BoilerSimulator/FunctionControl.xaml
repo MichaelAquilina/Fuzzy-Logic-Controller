@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="MachineLearningAssignment.FunctionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        
+        <Style x:Key="ContentTextBlockStyle" TargetType="TextBlock" >
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="ContentTextBoxStyle" TargetType="TextBox" >
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+    </UserControl.Resources>
+    
+    <WrapPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="A" 
+                       Style="{StaticResource ContentTextBlockStyle}" />
+            <TextBox x:Name="AParameterTextBox"
+                     Text="0.0"
+                     Style="{StaticResource ContentTextBoxStyle}" />
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="B" 
+                       Style="{StaticResource ContentTextBlockStyle}" />
+            <TextBox x:Name="BParameterTextBox" 
+                     Text="0.0"
+                     Style="{StaticResource ContentTextBoxStyle}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Alpha" 
+                       Style="{StaticResource ContentTextBlockStyle}" />
+            <TextBox x:Name="AlphaParameterTextBox" 
+                     Text="0.0"
+                     Style="{StaticResource ContentTextBoxStyle}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Beta" 
+                       Style="{StaticResource ContentTextBlockStyle}" />
+            <TextBox x:Name="BetaParameterTextBox" 
+                     Text="0.0"
+                     Style="{StaticResource ContentTextBoxStyle}" />
+        </StackPanel>
+    </WrapPanel>
+</UserControl>
