@@ -21,7 +21,7 @@ one another to prevent coupling. The user interface which was built for this sim
 logic controller by means of a simple an API which would allow it to obtain the necessary data when needed. The overall
 architecture of the system can be seen in the diagram below.
 
-[img/Design.png]
+![Design Overview](/img/Design.png)
 
 
 
